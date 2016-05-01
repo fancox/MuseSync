@@ -1,25 +1,129 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Rgp-6o-fUi">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Central-->
+        <scene sceneID="jpC-8Q-ajF">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TCd-np-828" customClass="CentralViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="qo5-tJ-3d8"/>
+                        <viewControllerLayoutGuide type="bottom" id="00M-Wd-gD9"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="YzB-hN-kxZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qpU-zC-Rj7">
+                                <rect key="frame" x="270" y="257.5" width="60" height="85"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56l-MO-yTy">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                        <state key="normal" title="Discover"/>
+                                        <connections>
+                                            <action selector="didTapDiscover:" destination="TCd-np-828" eventType="touchUpInside" id="AWV-hG-MHR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXN-Me-527">
+                                        <rect key="frame" x="14" y="55" width="32" height="30"/>
+                                        <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="didTapStop:" destination="TCd-np-828" eventType="touchUpInside" id="adZ-V9-vml"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qpU-zC-Rj7" firstAttribute="centerY" secondItem="YzB-hN-kxZ" secondAttribute="centerY" id="WKQ-VM-Uaf"/>
+                            <constraint firstItem="qpU-zC-Rj7" firstAttribute="centerX" secondItem="YzB-hN-kxZ" secondAttribute="centerX" id="n3W-7s-JV7"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Central" id="9gV-r9-orI"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0k-CR-89P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-38" y="483"/>
+        </scene>
+        <!--Peripheral-->
+        <scene sceneID="oaB-sw-92t">
+            <objects>
+                <viewController id="ciE-y8-f59" customClass="PeripheralViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SRT-wA-YKf"/>
+                        <viewControllerLayoutGuide type="bottom" id="xxs-co-tCC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K0d-pX-kgB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="w0Z-Dj-LYg">
+                                <rect key="frame" x="242" y="202.5" width="116" height="195"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC3-tW-3yn">
+                                        <rect key="frame" x="16.5" y="0.0" width="83" height="30"/>
+                                        <state key="normal" title="Add Service"/>
+                                        <connections>
+                                            <action selector="didTapAddService:" destination="ciE-y8-f59" eventType="touchUpInside" id="Lki-si-rfR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlK-6i-jkQ">
+                                        <rect key="frame" x="0.0" y="55" width="116" height="30"/>
+                                        <state key="normal" title="Start Advertising"/>
+                                        <connections>
+                                            <action selector="didTapStartAdvertising:" destination="ciE-y8-f59" eventType="touchUpInside" id="Qvh-7M-0zU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I2-3M-zhi">
+                                        <rect key="frame" x="1" y="110" width="114" height="30"/>
+                                        <state key="normal" title="Stop Advertising"/>
+                                        <connections>
+                                            <action selector="didTapStopAdvertising:" destination="ciE-y8-f59" eventType="touchUpInside" id="mJs-oC-nJ8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efW-D3-3Hh">
+                                        <rect key="frame" x="3" y="165" width="110" height="30"/>
+                                        <state key="normal" title="Remove Service"/>
+                                        <connections>
+                                            <action selector="didTapRemoveService:" destination="ciE-y8-f59" eventType="touchUpInside" id="3vy-rx-aNi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w0Z-Dj-LYg" firstAttribute="centerX" secondItem="K0d-pX-kgB" secondAttribute="centerX" id="9JB-xk-3Wf"/>
+                            <constraint firstItem="w0Z-Dj-LYg" firstAttribute="centerY" secondItem="K0d-pX-kgB" secondAttribute="centerY" id="aow-W0-cA6"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Peripheral" id="X0D-EV-PcD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cnh-Xr-a9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-38" y="-178"/>
+        </scene>
+        <!--Main Tab Bar View Controller-->
+        <scene sceneID="KjW-S1-t3D">
+            <objects>
+                <tabBarController id="Rgp-6o-fUi" customClass="MainTabBarViewController" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="3po-7X-csa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ciE-y8-f59" kind="relationship" relationship="viewControllers" id="YGj-cd-tBo"/>
+                        <segue destination="TCd-np-828" kind="relationship" relationship="viewControllers" id="BJF-hw-EX5"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uag-ry-xaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-858" y="153"/>
         </scene>
     </scenes>
 </document>

@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BC151D61CD6B91300291B80 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151D51CD6B91300291B80 /* MainTabBarViewController.swift */; };
+		8BC151D81CD6BA6F00291B80 /* CentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151D71CD6BA6F00291B80 /* CentralViewController.swift */; };
+		8BC151DA1CD6BA7C00291B80 /* PeripheralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151D91CD6BA7C00291B80 /* PeripheralViewController.swift */; };
+		8BC151DC1CD6BBAD00291B80 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151DB1CD6BBAD00291B80 /* Constants.swift */; };
 		8BF3DE581CCD800300BAEB66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3DE571CCD800300BAEB66 /* AppDelegate.swift */; };
-		8BF3DE5A1CCD800300BAEB66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3DE591CCD800300BAEB66 /* ViewController.swift */; };
 		8BF3DE5D1CCD800300BAEB66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF3DE5B1CCD800300BAEB66 /* Main.storyboard */; };
 		8BF3DE5F1CCD800300BAEB66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF3DE5E1CCD800300BAEB66 /* Assets.xcassets */; };
 		8BF3DE621CCD800300BAEB66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF3DE601CCD800300BAEB66 /* LaunchScreen.storyboard */; };
@@ -34,9 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8BC151D51CD6B91300291B80 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		8BC151D71CD6BA6F00291B80 /* CentralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralViewController.swift; sourceTree = "<group>"; };
+		8BC151D91CD6BA7C00291B80 /* PeripheralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralViewController.swift; sourceTree = "<group>"; };
+		8BC151DB1CD6BBAD00291B80 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8BF3DE541CCD800300BAEB66 /* MuseSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuseSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF3DE571CCD800300BAEB66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BF3DE591CCD800300BAEB66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BF3DE5C1CCD800300BAEB66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BF3DE5E1CCD800300BAEB66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BF3DE611CCD800300BAEB66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,11 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				8BF3DE571CCD800300BAEB66 /* AppDelegate.swift */,
-				8BF3DE591CCD800300BAEB66 /* ViewController.swift */,
-				8BF3DE5B1CCD800300BAEB66 /* Main.storyboard */,
 				8BF3DE5E1CCD800300BAEB66 /* Assets.xcassets */,
-				8BF3DE601CCD800300BAEB66 /* LaunchScreen.storyboard */,
+				8BC151DB1CD6BBAD00291B80 /* Constants.swift */,
 				8BF3DE631CCD800300BAEB66 /* Info.plist */,
+				8BF3DE601CCD800300BAEB66 /* LaunchScreen.storyboard */,
+				8BF3DE5B1CCD800300BAEB66 /* Main.storyboard */,
+				8BC151D51CD6B91300291B80 /* MainTabBarViewController.swift */,
+				8BC151D91CD6BA7C00291B80 /* PeripheralViewController.swift */,
+				8BC151D71CD6BA6F00291B80 /* CentralViewController.swift */,
 			);
 			path = MuseSync;
 			sourceTree = "<group>";
@@ -193,6 +202,7 @@
 				TargetAttributes = {
 					8BF3DE531CCD800300BAEB66 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = H9AG8MMMTC;
 					};
 					8BF3DE671CCD800300BAEB66 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -256,8 +266,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF3DE5A1CCD800300BAEB66 /* ViewController.swift in Sources */,
+				8BC151DA1CD6BA7C00291B80 /* PeripheralViewController.swift in Sources */,
+				8BC151D61CD6B91300291B80 /* MainTabBarViewController.swift in Sources */,
+				8BC151D81CD6BA6F00291B80 /* CentralViewController.swift in Sources */,
 				8BF3DE581CCD800300BAEB66 /* AppDelegate.swift in Sources */,
+				8BC151DC1CD6BBAD00291B80 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,10 +410,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MuseSync/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fchen.MuseSync;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -408,10 +423,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MuseSync/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fchen.MuseSync;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -482,6 +499,7 @@
 				8BF3DE7E1CCD800300BAEB66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BF3DE7F1CCD800300BAEB66 /* Build configuration list for PBXNativeTarget "MuseSyncTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +508,7 @@
 				8BF3DE811CCD800300BAEB66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BF3DE821CCD800300BAEB66 /* Build configuration list for PBXNativeTarget "MuseSyncUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +517,7 @@
 				8BF3DE841CCD800300BAEB66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
