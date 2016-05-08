@@ -16,14 +16,21 @@ class CentralViewController: UIViewController {
     var connetingPeripheral: CBPeripheral?
     var discoveredService: CBService?
 
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var joinButton: UIButton!
+
     override  func viewDidLoad() {
 
         super.viewDidLoad()
         centralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
     }
 
-    @IBAction func didTapDiscover(sender: AnyObject) {
+    @IBAction func didTapJoin(sender: AnyObject) {
 
+        // UI change
+        textView.text = textView.text + "\n" + "Searching for session to join..."
+
+        //
         guard let centralManager = centralManager else { return }
         let lastPeripherals = centralManager.retrieveConnectedPeripheralsWithServices([Constants.kUUID])
 
@@ -35,11 +42,6 @@ class CentralViewController: UIViewController {
         else {
             centralManager.scanForPeripheralsWithServices([Constants.kUUID], options: nil)
         }
-    }
-
-    @IBAction func didTapStop(sender: AnyObject) {
-
-        //centralManager?.stopScan()
     }
 }
 
@@ -64,7 +66,16 @@ extension CentralViewController: CBCentralManagerDelegate {
 
         NSLog("Connected to peripheral %@", peripheral)
         peripheral.discoverServices([Constants.kUUID])
+        textView.text = textView.text + "\n" + String(format: "Successfully connected to %@", peripheral.name ?? "")
+        joinButton.enabled = false
     }
+
+    func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+
+        textView.text = textView.text + "\n" + String(format: "%@ stopped the session", peripheral.name ?? "")
+        joinButton.enabled = true
+    }
+
 }
 
 extension CentralViewController: CBPeripheralDelegate {
@@ -85,7 +96,7 @@ extension CentralViewController: CBPeripheralDelegate {
         guard let characteristics = service.characteristics else { return }
         for characteristic in characteristics {
             NSLog("Found characteristic %@", characteristic)
-            peripheral.readValueForCharacteristic(characteristic)
+            peripheral.setNotifyValue(true, forCharacteristic: characteristic)
         }
     }
 
@@ -94,7 +105,17 @@ extension CentralViewController: CBPeripheralDelegate {
         if let data = characteristic.value {
             let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
             print(dataString)
+
+            textView.text = textView.text + "\n" + String(format: "%@: %@", connetingPeripheral?.name ?? "", dataString ?? "<No Message>")
         }
     }
+
+    func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+        
+        if let error = error {
+            print(error)
+        }
+    }
+    
 
 }
