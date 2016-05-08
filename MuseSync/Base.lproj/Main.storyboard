@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qpU-zC-Rj7">
-                                <rect key="frame" x="270" y="257.5" width="60" height="85"/>
+                                <rect key="frame" x="270" y="258" width="60" height="85"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56l-MO-yTy">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
@@ -62,10 +62,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="w0Z-Dj-LYg">
-                                <rect key="frame" x="242" y="202.5" width="116" height="195"/>
+                                <rect key="frame" x="242" y="203" width="116" height="195"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC3-tW-3yn">
-                                        <rect key="frame" x="16.5" y="0.0" width="83" height="30"/>
+                                        <rect key="frame" x="17" y="0.0" width="83" height="30"/>
                                         <state key="normal" title="Add Service"/>
                                         <connections>
                                             <action selector="didTapAddService:" destination="ciE-y8-f59" eventType="touchUpInside" id="Lki-si-rfR"/>

@@ -39,7 +39,7 @@ class CentralViewController: UIViewController {
 
     @IBAction func didTapStop(sender: AnyObject) {
 
-        centralManager?.stopScan()
+        //centralManager?.stopScan()
     }
 }
 
@@ -53,6 +53,7 @@ extension CentralViewController: CBCentralManagerDelegate {
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
 
         NSLog("Discovered %@", peripheral)
+        centralManager?.stopScan()
         connetingPeripheral = peripheral
         guard let connetingPeripheral = connetingPeripheral else { return }
         connetingPeripheral.delegate = self
@@ -73,7 +74,8 @@ extension CentralViewController: CBPeripheralDelegate {
         guard let services = peripheral.services else { return }
         for service in services {
             if service.UUID == Constants.kUUID {
-                peripheral.discoverCharacteristics([Constants.kUUID], forService: service)
+                self.discoveredService = service
+                peripheral.discoverCharacteristics(nil, forService: discoveredService!)
             }
         }
     }
@@ -83,8 +85,16 @@ extension CentralViewController: CBPeripheralDelegate {
         guard let characteristics = service.characteristics else { return }
         for characteristic in characteristics {
             NSLog("Found characteristic %@", characteristic)
-            let data = characteristic.value
-            print(data)
+            peripheral.readValueForCharacteristic(characteristic)
         }
     }
+
+    func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+
+        if let data = characteristic.value {
+            let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            print(dataString)
+        }
+    }
+
 }

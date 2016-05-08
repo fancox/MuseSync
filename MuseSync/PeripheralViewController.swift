@@ -14,6 +14,7 @@ class PeripheralViewController: UIViewController {
 
     private var peripheralManager: CBPeripheralManager?
     private var service: CBMutableService?
+    private var characteristic: CBMutableCharacteristic?
 
     override func viewDidLoad() {
 
@@ -24,21 +25,16 @@ class PeripheralViewController: UIViewController {
     @IBAction func didTapAddService(sender: AnyObject) {
 
         guard let peripheralManager = peripheralManager else { return }
-
+        let data = NSString(string: String("pig flies at @%", NSDate())).dataUsingEncoding(NSUTF8StringEncoding)
+        characteristic = CBMutableCharacteristic(type: Constants.kCharacteristicUUID, properties: .Read, value: data, permissions: .Readable)
         service = CBMutableService(type: Constants.kUUID, primary: true)
+        service!.characteristics = [characteristic!]
         peripheralManager.addService(service!)
-
     }
 
     @IBAction func didTapStartAdvertising(sender: AnyObject) {
 
-        guard let peripheralManager = peripheralManager,
-            service = service else { return }
-
-        let data = NSString(string: String("pig flies at @%", NSDate())).dataUsingEncoding(NSUTF8StringEncoding)
-
-        let characteristic = CBMutableCharacteristic(type: Constants.kUUID, properties: .Read, value: data, permissions: .Readable)
-        service.characteristics = [characteristic]
+        guard let peripheralManager = peripheralManager else { return }
         peripheralManager.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [Constants.kUUID]])
     }
 
@@ -68,5 +64,20 @@ extension PeripheralViewController: CBPeripheralManagerDelegate {
     func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager, error: NSError?) {
         
         print("Did start advertising @%", peripheral)
+    }
+
+    func peripheralManager(peripheral: CBPeripheralManager, didReceiveReadRequest request: CBATTRequest) {
+
+        guard let peripheralManager = peripheralManager,
+            characteristic = characteristic,
+            value = characteristic.value else { return }
+        if request.characteristic.UUID == Constants.kCharacteristicUUID {
+            if (request.offset > characteristic.value?.length) {
+                peripheralManager.respondToRequest(request, withResult: CBATTError.InvalidOffset)
+                return
+            }
+            request.value = value.subdataWithRange(NSMakeRange(request.offset, value.length - request.offset))
+            peripheralManager.respondToRequest(request, withResult: CBATTError.Success)
+        }
     }
 }
