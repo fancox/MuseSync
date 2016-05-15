@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreBluetooth
+import AVFoundation
 
 class PeripheralViewController: UIViewController {
 
@@ -55,7 +56,14 @@ class PeripheralViewController: UIViewController {
 
     @IBAction func didTapPause(sender: AnyObject) {
 
-       updateCentralsWithMessage("Let's pause for a bit.")
+        updateCentralsWithMessage("Let's pause for a bit.")
+    }
+
+    @IBAction func didTapPlay(sender: AnyObject) {
+
+        let urlString = "http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4"
+        let playerManager = PlayerManager(urlString: urlString)
+        playerManager.play()
     }
 
     @IBAction func didTapStop(sender: AnyObject) {
@@ -103,12 +111,12 @@ extension PeripheralViewController: CBPeripheralManagerDelegate {
 
     func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didSubscribeToCharacteristic characteristic: CBCharacteristic) {
         
-         updateCentralsWithMessage("Start rock n roll!")
+        updateCentralsWithMessage("Start rock n roll!")
     }
-
+    
     func peripheralManagerIsReadyToUpdateSubscribers(peripheral: CBPeripheralManager) {
-
-
+        
+        
     }
     
 }

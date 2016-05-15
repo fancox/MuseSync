@@ -130,6 +130,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWK-Bg-nUk">
+                                <rect key="frame" x="159" y="420" width="30" height="30"/>
+                                <state key="normal" title="|&gt;"/>
+                                <connections>
+                                    <action selector="didTapPlay:" destination="ciE-y8-f59" eventType="touchUpInside" id="QQA-VD-UlV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIV-M4-nra">
+                                <rect key="frame" x="408" y="420" width="30" height="30"/>
+                                <state key="normal" title="口"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

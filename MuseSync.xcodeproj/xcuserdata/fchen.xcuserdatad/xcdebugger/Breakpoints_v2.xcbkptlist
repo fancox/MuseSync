@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MuseSync/CentralViewController.swift"
-            timestampString = "484443803.961942"
+            filePath = "MuseSync/PlayerManager.swift"
+            timestampString = "485042016.983321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "peripheral(_:didUpdateNotificationStateForCharacteristic:error:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "observeValueForKeyPath(_:ofObject:change:context:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,78 +25,94 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MuseSync/CentralViewController.swift"
-            timestampString = "484443803.961942"
+            filePath = "MuseSync/PlayerManager.swift"
+            timestampString = "485042016.983321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "peripheral(_:didUpdateValueForCharacteristic:error:)"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "observeValueForKeyPath(_:ofObject:change:context:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MuseSync/PlayerManager.swift"
+            timestampString = "485042002.597217"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "play()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MuseSync/PlayerManager.swift"
+            timestampString = "485042018.235383"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "play()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MuseSync/PlayerManager.swift"
+            timestampString = "485042060.59129"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "play()"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MuseSync.CentralViewController.peripheral (__ObjC.CBPeripheral, didUpdateValueForCharacteristic : __ObjC.CBCharacteristic, error : Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()"
+                  symbolName = "MuseSync.PlayerManager.(play () -&gt; ()).(closure #1)"
                   moduleName = "MuseSync"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fchen/fchen-workspace/MuseSync/MuseSync/CentralViewController.swift"
-                  timestampString = "484443120.108059"
+                  urlString = "file:///Users/fchen/fchen-workspace/MuseSync/MuseSync/PlayerManager.swift"
+                  timestampString = "485042487.915651"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "40">
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "52">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MuseSync.CentralViewController.peripheral (__ObjC.CBPeripheral, didUpdateValueForCharacteristic : __ObjC.CBCharacteristic, error : Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()"
+                  symbolName = "MuseSync.PlayerManager.(play () -&gt; ()).(closure #1)"
                   moduleName = "MuseSync"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fchen/fchen-workspace/MuseSync/MuseSync/CentralViewController.swift"
-                  timestampString = "484443120.108304"
+                  urlString = "file:///Users/fchen/fchen-workspace/MuseSync/MuseSync/PlayerManager.swift"
+                  timestampString = "485042487.915737"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "104">
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "96">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MuseSync/PeripheralViewController.swift"
-            timestampString = "484442913.888317"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "didTapPause(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MuseSync/PeripheralViewController.swift"
-            timestampString = "484443472.39449"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "peripheralManager(_:central:didSubscribeToCharacteristic:)"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
