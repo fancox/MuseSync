@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8BB88EA51CE9042100B1C941 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB88EA41CE9042100B1C941 /* PlayerManager.swift */; };
+		8BB88EA51CE9042100B1C941 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB88EA41CE9042100B1C941 /* PlayerController.swift */; };
 		8BC151D61CD6B91300291B80 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151D51CD6B91300291B80 /* MainTabBarViewController.swift */; };
 		8BC151D81CD6BA6F00291B80 /* CentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151D71CD6BA6F00291B80 /* CentralViewController.swift */; };
 		8BC151DA1CD6BA7C00291B80 /* PeripheralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151D91CD6BA7C00291B80 /* PeripheralViewController.swift */; };
@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8BB88EA41CE9042100B1C941 /* PlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
+		8BB88EA41CE9042100B1C941 /* PlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		8BC151D51CD6B91300291B80 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		8BC151D71CD6BA6F00291B80 /* CentralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralViewController.swift; sourceTree = "<group>"; };
 		8BC151D91CD6BA7C00291B80 /* PeripheralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 				8BC151D51CD6B91300291B80 /* MainTabBarViewController.swift */,
 				8BC151D91CD6BA7C00291B80 /* PeripheralViewController.swift */,
 				8BC151D71CD6BA6F00291B80 /* CentralViewController.swift */,
-				8BB88EA41CE9042100B1C941 /* PlayerManager.swift */,
+				8BB88EA41CE9042100B1C941 /* PlayerController.swift */,
 			);
 			path = MuseSync;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 			files = (
 				8BC151DA1CD6BA7C00291B80 /* PeripheralViewController.swift in Sources */,
 				8BC151D61CD6B91300291B80 /* MainTabBarViewController.swift in Sources */,
-				8BB88EA51CE9042100B1C941 /* PlayerManager.swift in Sources */,
+				8BB88EA51CE9042100B1C941 /* PlayerController.swift in Sources */,
 				8BC151D81CD6BA6F00291B80 /* CentralViewController.swift in Sources */,
 				8BF3DE581CCD800300BAEB66 /* AppDelegate.swift in Sources */,
 				8BC151DC1CD6BBAD00291B80 /* Constants.swift in Sources */,

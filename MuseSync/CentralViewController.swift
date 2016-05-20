@@ -15,6 +15,7 @@ class CentralViewController: UIViewController {
     var centralManager: CBCentralManager?
     var connetingPeripheral: CBPeripheral?
     var discoveredService: CBService?
+    private var playerController: PlayerController?
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var joinButton: UIButton!
@@ -22,6 +23,8 @@ class CentralViewController: UIViewController {
     override  func viewDidLoad() {
 
         super.viewDidLoad()
+        playerController = PlayerController()
+
         centralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
     }
 
@@ -41,6 +44,16 @@ class CentralViewController: UIViewController {
         }
         else {
             centralManager.scanForPeripheralsWithServices([Constants.kUUID], options: nil)
+        }
+    }
+
+    // MARK: - Private Method
+    private func onPlayOrPauseMusic(instruction: String) {
+
+        if(instruction == "play") {
+            playerController?.playOrPause()
+        } else {
+            playerController?.playOrPause()
         }
     }
 }
@@ -103,10 +116,15 @@ extension CentralViewController: CBPeripheralDelegate {
     func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
 
         if let data = characteristic.value {
-            let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)?.description
             print(dataString)
 
             textView.text = textView.text + "\n" + String(format: "%@: %@", connetingPeripheral?.name ?? "", dataString ?? "<No Message>")
+
+
+            if dataString! == "play" || dataString! == "pause" {
+                onPlayOrPauseMusic(dataString!)
+            }
         }
     }
 
@@ -117,5 +135,5 @@ extension CentralViewController: CBPeripheralDelegate {
         }
     }
     
-
+    
 }

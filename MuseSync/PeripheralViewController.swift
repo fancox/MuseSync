@@ -16,35 +16,15 @@ class PeripheralViewController: UIViewController {
     private var peripheralManager: CBPeripheralManager?
     private var service: CBMutableService?
     private var characteristic: CBMutableCharacteristic?
-    private var playerManager: PlayerManager?
-
-    var playerItem:AVPlayerItem?
-    var player:AVPlayer?
-
+    private var playerController: PlayerController?
 
     @IBOutlet weak var textLabel: UILabel!
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        playerController = PlayerController()
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: nil)
-        let url = NSURL(string: "https://s3.amazonaws.com/kargopolov/kukushka.mp3")
-
-        playerItem = AVPlayerItem(URL: url!)
-        player=AVPlayer(playerItem: playerItem!)
-//        let playerLayer=AVPlayerLayer(player: player!)
-//        playerLayer.frame=CGRectMake(0, 0, 300, 50)
-//        self.view.layer.addSublayer(playerLayer)
-
-
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        //        NSNotificationCenter.defaultCenter().addObserver(self, selector: "finishedPlaying:", name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem)
-    }
-
-    override func viewWillDisappear(animated: Bool) {
-        // NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     // Private methods
@@ -58,6 +38,18 @@ class PeripheralViewController: UIViewController {
             peripheralManager.updateValue(data, forCharacteristic: characteristic, onSubscribedCentrals: nil)
         }
     }
+
+    private func updateCentralsWithMusicInstruction(message: String) {
+
+        guard let peripheralManager = peripheralManager,
+            characteristic = characteristic  else { return }
+
+        if let data = NSString(string: message)
+            .dataUsingEncoding(NSUTF8StringEncoding) {
+            peripheralManager.updateValue(data, forCharacteristic: characteristic, onSubscribedCentrals: nil)
+        }
+    }
+
 
     // IBActions
     @IBAction func didTapStart(sender: AnyObject) {
@@ -81,22 +73,6 @@ class PeripheralViewController: UIViewController {
         updateCentralsWithMessage("Let's pause for a bit.")
     }
 
-    @IBAction func didTapPlay(sender: AnyObject) {
-
-        //        let urlString = "http://static.musescore.com/1930896/2989cd32eb/score.mp3"
-        //        playerManager = PlayerManager(urlString: urlString)
-        //        playerManager?.play()
-
-        if player?.rate == 0
-        {
-            player!.play()
-            //   playButton.setImage(UIImage(named: "player_control_pause_50px.png"), forState: UIControlState.Normal)
-        } else {
-            player!.pause()
-            //    playButton.setImage(UIImage(named: "player_control_play_50px.png"), forState: UIControlState.Normal)
-        }
-    }
-
     @IBAction func didTapStop(sender: AnyObject) {
 
         // UI change
@@ -105,6 +81,20 @@ class PeripheralViewController: UIViewController {
         // stop advertising and service
         peripheralManager?.stopAdvertising()
         peripheralManager?.removeAllServices()
+    }
+
+    // Music playing related
+
+    @IBAction func didTapPlay(sender: AnyObject) {
+
+        playerController?.playOrPause()
+        updateCentralsWithMusicInstruction("play")
+    }
+
+    @IBAction func didTapPauseMusic(sender: AnyObject) {
+
+        playerController?.playOrPause()
+        updateCentralsWithMusicInstruction("pause")
     }
 }
 
@@ -141,7 +131,7 @@ extension PeripheralViewController: CBPeripheralManagerDelegate {
     }
 
     func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didSubscribeToCharacteristic characteristic: CBCharacteristic) {
-        
+
         updateCentralsWithMessage("Start rock n roll!")
     }
     

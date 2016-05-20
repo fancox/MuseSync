@@ -130,24 +130,42 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWK-Bg-nUk">
-                                <rect key="frame" x="159" y="420" width="30" height="30"/>
-                                <state key="normal" title="|&gt;"/>
-                                <connections>
-                                    <action selector="didTapPlay:" destination="ciE-y8-f59" eventType="touchUpInside" id="QQA-VD-UlV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIV-M4-nra">
-                                <rect key="frame" x="408" y="420" width="30" height="30"/>
-                                <state key="normal" title="口"/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d29-U6-3qH">
+                                <rect key="frame" x="256" y="432" width="88" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWK-Bg-nUk">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="NLm-kx-qua"/>
+                                            <constraint firstAttribute="height" constant="44" id="Ojb-tX-jgk"/>
+                                        </constraints>
+                                        <state key="normal" image="Play"/>
+                                        <connections>
+                                            <action selector="didTapPlay:" destination="ciE-y8-f59" eventType="touchUpInside" id="QQA-VD-UlV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIV-M4-nra">
+                                        <rect key="frame" x="44" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="4nC-Y1-ugf"/>
+                                            <constraint firstAttribute="width" constant="44" id="JF9-u5-oNi"/>
+                                        </constraints>
+                                        <state key="normal" image="Pause"/>
+                                        <connections>
+                                            <action selector="didTapPauseMusic:" destination="ciE-y8-f59" eventType="touchUpInside" id="y01-74-6AZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="w0Z-Dj-LYg" firstAttribute="centerX" secondItem="K0d-pX-kgB" secondAttribute="centerX" id="9JB-xk-3Wf"/>
                             <constraint firstAttribute="trailing" secondItem="7cF-Lm-FqG" secondAttribute="trailing" id="Kp0-Hn-PMj"/>
+                            <constraint firstItem="d29-U6-3qH" firstAttribute="centerX" secondItem="K0d-pX-kgB" secondAttribute="centerX" id="UhY-qS-X1O"/>
                             <constraint firstItem="w0Z-Dj-LYg" firstAttribute="centerY" secondItem="K0d-pX-kgB" secondAttribute="centerY" id="aow-W0-cA6"/>
                             <constraint firstItem="7cF-Lm-FqG" firstAttribute="leading" secondItem="K0d-pX-kgB" secondAttribute="leading" id="ftv-jF-j31"/>
+                            <constraint firstItem="d29-U6-3qH" firstAttribute="top" secondItem="w0Z-Dj-LYg" secondAttribute="bottom" constant="62" id="hAP-nB-GrJ"/>
                             <constraint firstItem="7cF-Lm-FqG" firstAttribute="top" secondItem="SRT-wA-YKf" secondAttribute="bottom" id="tfY-X1-p4h"/>
                         </constraints>
                     </view>
@@ -181,6 +199,8 @@
     </scenes>
     <resources>
         <image name="Moderator" width="24" height="24"/>
+        <image name="Pause" width="24" height="24"/>
+        <image name="Play" width="24" height="24"/>
         <image name="User" width="24" height="24"/>
     </resources>
 </document>
