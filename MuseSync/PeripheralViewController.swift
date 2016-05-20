@@ -16,6 +16,11 @@ class PeripheralViewController: UIViewController {
     private var peripheralManager: CBPeripheralManager?
     private var service: CBMutableService?
     private var characteristic: CBMutableCharacteristic?
+    private var playerManager: PlayerManager?
+
+    var playerItem:AVPlayerItem?
+    var player:AVPlayer?
+
 
     @IBOutlet weak var textLabel: UILabel!
 
@@ -23,6 +28,23 @@ class PeripheralViewController: UIViewController {
 
         super.viewDidLoad()
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: nil)
+        let url = NSURL(string: "https://s3.amazonaws.com/kargopolov/kukushka.mp3")
+
+        playerItem = AVPlayerItem(URL: url!)
+        player=AVPlayer(playerItem: playerItem!)
+//        let playerLayer=AVPlayerLayer(player: player!)
+//        playerLayer.frame=CGRectMake(0, 0, 300, 50)
+//        self.view.layer.addSublayer(playerLayer)
+
+
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        //        NSNotificationCenter.defaultCenter().addObserver(self, selector: "finishedPlaying:", name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem)
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        // NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     // Private methods
@@ -61,9 +83,18 @@ class PeripheralViewController: UIViewController {
 
     @IBAction func didTapPlay(sender: AnyObject) {
 
-        let urlString = "http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4"
-        let playerManager = PlayerManager(urlString: urlString)
-        playerManager.play()
+        //        let urlString = "http://static.musescore.com/1930896/2989cd32eb/score.mp3"
+        //        playerManager = PlayerManager(urlString: urlString)
+        //        playerManager?.play()
+
+        if player?.rate == 0
+        {
+            player!.play()
+            //   playButton.setImage(UIImage(named: "player_control_pause_50px.png"), forState: UIControlState.Normal)
+        } else {
+            player!.pause()
+            //    playButton.setImage(UIImage(named: "player_control_play_50px.png"), forState: UIControlState.Normal)
+        }
     }
 
     @IBAction func didTapStop(sender: AnyObject) {
