@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B92B21F1D29CD0000E2C17E /* MainSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B92B21E1D29CD0000E2C17E /* MainSB.storyboard */; };
+		8B92B2211D29D62100E2C17E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B92B2201D29D62100E2C17E /* WelcomeViewController.swift */; };
+		8B92B2261D29D70000E2C17E /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B92B2251D29D70000E2C17E /* UIButton+.swift */; };
+		8B92B2281D29D8FD00E2C17E /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B92B2271D29D8FD00E2C17E /* HelloViewController.swift */; };
+		8B92B22A1D29DAE800E2C17E /* SelectSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B92B2291D29DAE800E2C17E /* SelectSongViewController.swift */; };
+		8B92B22C1D29DC2600E2C17E /* PlaySongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B92B22B1D29DC2600E2C17E /* PlaySongViewController.swift */; };
+		8B92B2301D29DE9400E2C17E /* PlaySongViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B92B22F1D29DE9400E2C17E /* PlaySongViewController.storyboard */; };
+		8B92B2321D29DEC000E2C17E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B92B2311D29DEC000E2C17E /* UIViewController+.swift */; };
 		8BB88EA51CE9042100B1C941 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB88EA41CE9042100B1C941 /* PlayerController.swift */; };
 		8BC151D61CD6B91300291B80 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151D51CD6B91300291B80 /* MainTabBarViewController.swift */; };
 		8BC151D81CD6BA6F00291B80 /* CentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151D71CD6BA6F00291B80 /* CentralViewController.swift */; };
@@ -38,6 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B92B21E1D29CD0000E2C17E /* MainSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainSB.storyboard; sourceTree = "<group>"; };
+		8B92B2201D29D62100E2C17E /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		8B92B2251D29D70000E2C17E /* UIButton+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+.swift"; path = "Infra/UIButton+.swift"; sourceTree = "<group>"; };
+		8B92B2271D29D8FD00E2C17E /* HelloViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
+		8B92B2291D29DAE800E2C17E /* SelectSongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectSongViewController.swift; path = ../SelectSongViewController.swift; sourceTree = "<group>"; };
+		8B92B22B1D29DC2600E2C17E /* PlaySongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySongViewController.swift; sourceTree = "<group>"; };
+		8B92B22F1D29DE9400E2C17E /* PlaySongViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaySongViewController.storyboard; sourceTree = "<group>"; };
+		8B92B2311D29DEC000E2C17E /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+.swift"; path = "Infra/UIViewController+.swift"; sourceTree = "<group>"; };
 		8BB88EA41CE9042100B1C941 /* PlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		8BC151D51CD6B91300291B80 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		8BC151D71CD6BA6F00291B80 /* CentralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B92B2241D29D6E700E2C17E /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+				8B92B2251D29D70000E2C17E /* UIButton+.swift */,
+				8B92B2311D29DEC000E2C17E /* UIViewController+.swift */,
+			);
+			name = Infra;
+			sourceTree = "<group>";
+		};
 		8BF3DE4B1CCD800300BAEB66 = {
 			isa = PBXGroup;
 			children = (
@@ -105,16 +130,23 @@
 		8BF3DE561CCD800300BAEB66 /* MuseSync */ = {
 			isa = PBXGroup;
 			children = (
+				8B92B2241D29D6E700E2C17E /* Infra */,
 				8BF3DE571CCD800300BAEB66 /* AppDelegate.swift */,
-				8BF3DE5E1CCD800300BAEB66 /* Assets.xcassets */,
+				8BC151D71CD6BA6F00291B80 /* CentralViewController.swift */,
 				8BC151DB1CD6BBAD00291B80 /* Constants.swift */,
+				8B92B2271D29D8FD00E2C17E /* HelloViewController.swift */,
 				8BF3DE631CCD800300BAEB66 /* Info.plist */,
 				8BF3DE601CCD800300BAEB66 /* LaunchScreen.storyboard */,
 				8BF3DE5B1CCD800300BAEB66 /* Main.storyboard */,
+				8B92B21E1D29CD0000E2C17E /* MainSB.storyboard */,
 				8BC151D51CD6B91300291B80 /* MainTabBarViewController.swift */,
 				8BC151D91CD6BA7C00291B80 /* PeripheralViewController.swift */,
-				8BC151D71CD6BA6F00291B80 /* CentralViewController.swift */,
 				8BB88EA41CE9042100B1C941 /* PlayerController.swift */,
+				8B92B22F1D29DE9400E2C17E /* PlaySongViewController.storyboard */,
+				8B92B22B1D29DC2600E2C17E /* PlaySongViewController.swift */,
+				8B92B2291D29DAE800E2C17E /* SelectSongViewController.swift */,
+				8B92B2201D29D62100E2C17E /* WelcomeViewController.swift */,
+				8BF3DE5E1CCD800300BAEB66 /* Assets.xcassets */,
 			);
 			path = MuseSync;
 			sourceTree = "<group>";
@@ -244,6 +276,8 @@
 			files = (
 				8BF3DE621CCD800300BAEB66 /* LaunchScreen.storyboard in Resources */,
 				8BF3DE5F1CCD800300BAEB66 /* Assets.xcassets in Resources */,
+				8B92B21F1D29CD0000E2C17E /* MainSB.storyboard in Resources */,
+				8B92B2301D29DE9400E2C17E /* PlaySongViewController.storyboard in Resources */,
 				8BF3DE5D1CCD800300BAEB66 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,12 +303,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B92B2281D29D8FD00E2C17E /* HelloViewController.swift in Sources */,
 				8BC151DA1CD6BA7C00291B80 /* PeripheralViewController.swift in Sources */,
 				8BC151D61CD6B91300291B80 /* MainTabBarViewController.swift in Sources */,
 				8BB88EA51CE9042100B1C941 /* PlayerController.swift in Sources */,
 				8BC151D81CD6BA6F00291B80 /* CentralViewController.swift in Sources */,
 				8BF3DE581CCD800300BAEB66 /* AppDelegate.swift in Sources */,
 				8BC151DC1CD6BBAD00291B80 /* Constants.swift in Sources */,
+				8B92B2211D29D62100E2C17E /* WelcomeViewController.swift in Sources */,
+				8B92B2321D29DEC000E2C17E /* UIViewController+.swift in Sources */,
+				8B92B22C1D29DC2600E2C17E /* PlaySongViewController.swift in Sources */,
+				8B92B2261D29D70000E2C17E /* UIButton+.swift in Sources */,
+				8B92B22A1D29DAE800E2C17E /* SelectSongViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
