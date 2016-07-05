@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Play Song View Controller-->
+        <!--Conductor Player View Controller-->
         <scene sceneID="uEf-Cz-6Uy">
             <objects>
-                <viewController storyboardIdentifier="PlaySongViewController" id="iDy-ee-KTO" customClass="PlaySongViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConductorPlayerViewController" id="iDy-ee-KTO" customClass="ConductorPlayerViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZOx-10-klk"/>
                         <viewControllerLayoutGuide type="bottom" id="oFM-Yl-yh4"/>
@@ -23,50 +23,40 @@
                                     <constraint firstAttribute="height" constant="100" id="PER-Wy-P2n"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tj3-6B-nmA">
-                                <rect key="frame" x="225" y="324" width="150" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="RVY-YM-dlg"/>
-                                    <constraint firstAttribute="width" constant="150" id="Xfu-cQ-5MR"/>
-                                </constraints>
-                                <state key="normal" title="Pause">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBm-Pw-tZa">
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBm-Pw-tZa">
                                 <rect key="frame" x="225" y="235" width="150" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="SWx-9s-US7"/>
                                     <constraint firstAttribute="width" constant="150" id="bcv-ly-k4U"/>
                                 </constraints>
-                                <state key="normal" title="Play">
+                                <state key="normal" image="Play">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapPlay:" destination="iDy-ee-KTO" eventType="touchUpInside" id="Xqg-RC-AHW"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.076484654370000002" green="0.31048168920000002" blue="0.53203914139999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="tj3-6B-nmA" firstAttribute="centerX" secondItem="qgh-lV-ca2" secondAttribute="centerX" id="9aY-YP-R1A"/>
-                            <constraint firstItem="tj3-6B-nmA" firstAttribute="top" secondItem="fBm-Pw-tZa" secondAttribute="bottom" constant="45" id="ELP-Xe-RRa"/>
                             <constraint firstItem="2M3-1e-4xb" firstAttribute="top" secondItem="ZOx-10-klk" secondAttribute="bottom" constant="35" id="LIx-KN-3U7"/>
                             <constraint firstItem="fBm-Pw-tZa" firstAttribute="top" secondItem="2M3-1e-4xb" secondAttribute="bottom" constant="80" id="PaL-rT-8aQ"/>
+                            <constraint firstItem="fBm-Pw-tZa" firstAttribute="centerX" secondItem="qgh-lV-ca2" secondAttribute="centerX" id="ZTj-ZF-Ys5"/>
                             <constraint firstItem="2M3-1e-4xb" firstAttribute="centerX" secondItem="qgh-lV-ca2" secondAttribute="centerX" id="k9w-aM-Y5M"/>
-                            <constraint firstItem="fBm-Pw-tZa" firstAttribute="leading" secondItem="tj3-6B-nmA" secondAttribute="leading" id="meZ-aJ-pmq"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pauseButton" destination="tj3-6B-nmA" id="Pbe-El-w4l"/>
                         <outlet property="playButton" destination="fBm-Pw-tZa" id="Baz-N6-BMM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="do9-2f-ydc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3205" y="140"/>
+            <point key="canvasLocation" x="-1218" y="-856"/>
         </scene>
     </scenes>
     <resources>
         <image name="MusicBar" width="1262" height="408"/>
+        <image name="Play" width="24" height="24"/>
     </resources>
 </document>

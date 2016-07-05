@@ -1,5 +1,5 @@
 //
-//  HelloViewController.swift
+//  ConductorMainViewController.swift
 //  MuseSync
 //
 //  Created by Fan Chen on 7/3/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HelloViewController: UIViewController {
+class ConductorMainViewController: UIViewController {
 
     @IBOutlet weak var bigButton: UIButton!
 
@@ -16,5 +16,11 @@ class HelloViewController: UIViewController {
 
         super.viewDidLoad()
         bigButton.cornerRadius()
+        setupPeripheral()
+    }
+
+    private func setupPeripheral() {
+
+        PeripheralViewController.sharedInstance
     }
 }

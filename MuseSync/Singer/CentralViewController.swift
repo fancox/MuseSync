@@ -10,30 +10,32 @@ import Foundation
 import UIKit
 import CoreBluetooth
 
-class CentralViewController: UIViewController {
+class CentralViewController: NSObject {
+
+    static var kCharacteristicValueUpdatedNotification: String = "CharacteristicValueUpdated"
+    static var kCharacteristicNotificationInfo: String { return "CharacteristicInfo" }
+    static let sharedInstance = CentralViewController()
 
     var centralManager: CBCentralManager?
     var connetingPeripheral: CBPeripheral?
     var discoveredService: CBService?
-    private var playerController: PlayerController?
+    var notificationCenter: NSNotificationCenter?
 
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var joinButton: UIButton!
+    // MARK: - Life cycle
+    private override init() {
 
-    override  func viewDidLoad() {
-
-        super.viewDidLoad()
-        playerController = PlayerController()
-
+        super.init()
+        notificationCenter = NSNotificationCenter.defaultCenter()
         centralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
     }
 
-    @IBAction func didTapJoin(sender: AnyObject) {
+    deinit {
+        print("PeripheralViewController died")
+    }
 
-        // UI change
-        textView.text = textView.text + "\n" + "Searching for session to join..."
+    // MARK: - Public Methods
+    func joinASession() {
 
-        //
         guard let centralManager = centralManager else { return }
         let lastPeripherals = centralManager.retrieveConnectedPeripheralsWithServices([Constants.kUUID])
 
@@ -47,14 +49,16 @@ class CentralViewController: UIViewController {
         }
     }
 
-    // MARK: - Private Method
-    private func onPlayOrPauseMusic(instruction: String) {
+    // MARK: - Private Methods
+    private func onCharacteristicUpdated(shouldPlay: Bool) {
 
-        if(instruction == "play") {
-            playerController?.playOrPause()
-        } else {
-            playerController?.playOrPause()
-        }
+        postCharacteristicValueUpdatedNotification(shouldPlay)
+    }
+
+    private func postCharacteristicValueUpdatedNotification(shouldPlay: Bool) {
+
+        let userInfo = [CentralViewController.kCharacteristicNotificationInfo : shouldPlay]
+        self.notificationCenter?.postNotificationName(CentralViewController.kCharacteristicValueUpdatedNotification, object: self, userInfo: userInfo)
     }
 }
 
@@ -62,7 +66,7 @@ extension CentralViewController: CBCentralManagerDelegate {
 
     func centralManagerDidUpdateState(central: CBCentralManager) {
 
-        print("centralManagerDidUpdateState")
+        NSLog("centralManagerDidUpdateState " + "\(central.state.rawValue)")
     }
 
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
@@ -77,18 +81,14 @@ extension CentralViewController: CBCentralManagerDelegate {
 
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
 
-        NSLog("Connected to peripheral %@", peripheral)
+        NSLog("Connected to peripheral " + "\(peripheral.name)")
         peripheral.discoverServices([Constants.kUUID])
-        textView.text = textView.text + "\n" + String(format: "Successfully connected to %@", peripheral.name ?? "")
-        joinButton.enabled = false
     }
 
     func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
 
-        textView.text = textView.text + "\n" + String(format: "%@ stopped the session", peripheral.name ?? "")
-        joinButton.enabled = true
+        NSLog("DisconnectPeripheral to peripheral " + "\(peripheral.name)")
     }
-
 }
 
 extension CentralViewController: CBPeripheralDelegate {
@@ -108,7 +108,7 @@ extension CentralViewController: CBPeripheralDelegate {
 
         guard let characteristics = service.characteristics else { return }
         for characteristic in characteristics {
-            NSLog("Found characteristic %@", characteristic)
+            NSLog("Found characteristic", "\(characteristic)")
             peripheral.setNotifyValue(true, forCharacteristic: characteristic)
         }
     }
@@ -117,13 +117,12 @@ extension CentralViewController: CBPeripheralDelegate {
 
         if let data = characteristic.value {
             let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)?.description
-            print(dataString)
+            NSLog("didUpdateValueForCharacteristic: " + "\(dataString!)")
 
-            textView.text = textView.text + "\n" + String(format: "%@: %@", connetingPeripheral?.name ?? "", dataString ?? "<No Message>")
-
-
-            if dataString! == "play" || dataString! == "pause" {
-                onPlayOrPauseMusic(dataString!)
+            if dataString == "true" {
+                onCharacteristicUpdated(true)
+            } else {
+                onCharacteristicUpdated(false)
             }
         }
     }
@@ -134,6 +133,4 @@ extension CentralViewController: CBPeripheralDelegate {
             print(error)
         }
     }
-    
-    
 }

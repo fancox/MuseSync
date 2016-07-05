@@ -85,7 +85,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.076484654365636756" green="0.31048168919900027" blue="0.53203914141414144" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hys-0O-6ud" firstAttribute="leading" secondItem="mWD-Zp-mei" secondAttribute="leadingMargin" constant="30" id="07o-de-qMi"/>
                             <constraint firstItem="xtl-89-pjT" firstAttribute="leading" secondItem="mWD-Zp-mei" secondAttribute="leadingMargin" constant="30" id="0gl-QA-ypJ"/>
@@ -128,7 +128,7 @@
         <!--Hello Maestro! -->
         <scene sceneID="HL6-cx-vHI">
             <objects>
-                <viewController id="P0R-4v-bjJ" customClass="HelloViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="P0R-4v-bjJ" customClass="ConductorMainViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2uy-bq-hx6"/>
                         <viewControllerLayoutGuide type="bottom" id="s06-VF-oUz"/>
@@ -144,6 +144,7 @@
                                     <constraint firstAttribute="height" constant="101" id="9ZH-up-wd3"/>
                                     <constraint firstAttribute="width" constant="172" id="GqY-yT-nT6"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal">
                                     <string key="title">Select Song
 </string>
@@ -161,12 +162,12 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="qcN-WJ-Fz9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.076484654370000002" green="0.31048168920000002" blue="0.53203914139999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="can-EI-Coq" firstAttribute="centerX" secondItem="tPc-re-dhT" secondAttribute="centerX" id="3wD-v7-OR0"/>
                             <constraint firstItem="dGC-mV-kGK" firstAttribute="centerX" secondItem="tPc-re-dhT" secondAttribute="centerX" id="J08-ns-eoc"/>
@@ -192,7 +193,7 @@
         <!--Select Song-->
         <scene sceneID="yaT-CK-EzX">
             <objects>
-                <tableViewController id="yRX-L7-Ydq" customClass="SelectSongViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yRX-L7-Ydq" customClass="ConductorSelectSongViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="N5T-jj-VP9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,7 +203,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HFV-ww-Y4n" id="BJ9-zD-aPO">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -221,7 +222,7 @@
         <!--Hello Rockstar!-->
         <scene sceneID="13j-qY-bJI">
             <objects>
-                <viewController id="8NZ-nu-F5s" customClass="HelloViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8NZ-nu-F5s" customClass="SingerJoinSessionViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="akJ-Sq-peK"/>
                         <viewControllerLayoutGuide type="bottom" id="lYe-LN-FDG"/>
@@ -250,25 +251,25 @@
                                     <constraint firstAttribute="width" constant="172" id="dmo-XK-5bG"/>
                                     <constraint firstAttribute="height" constant="101" id="zCo-4g-L6R"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Join">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="didTapJoin:" destination="8NZ-nu-F5s" eventType="touchUpInside" id="5uB-pv-6kv"/>
                                     <segue destination="Z3h-Oq-eK4" kind="show" id="qLv-ha-6qk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please join a session" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GB0-13-gcW">
-                                <rect key="frame" x="172" y="238" width="256" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please join a session" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GB0-13-gcW">
+                                <rect key="frame" x="203" y="238" width="194" height="26"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.076484654370000002" green="0.31048168920000002" blue="0.53203914139999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="GB0-13-gcW" firstAttribute="leading" secondItem="ajP-rD-jAx" secondAttribute="leading" constant="172" id="CpL-yJ-sJL"/>
                             <constraint firstItem="iuq-95-wsI" firstAttribute="top" secondItem="GB0-13-gcW" secondAttribute="bottom" constant="25" id="JmI-Iq-cOR"/>
-                            <constraint firstItem="GB0-13-gcW" firstAttribute="centerX" secondItem="1fU-tX-bvE" secondAttribute="centerX" id="LWI-N5-iMV"/>
                             <constraint firstItem="rWX-MI-xwP" firstAttribute="top" secondItem="1fU-tX-bvE" secondAttribute="bottom" constant="26" id="MiY-dt-MnC"/>
                             <constraint firstItem="1fU-tX-bvE" firstAttribute="centerX" secondItem="ajP-rD-jAx" secondAttribute="centerX" id="R2f-dL-cte"/>
                             <constraint firstItem="1fU-tX-bvE" firstAttribute="top" secondItem="akJ-Sq-peK" secondAttribute="bottom" constant="50" id="YRz-eF-dfp"/>
@@ -276,20 +277,15 @@
                             <constraint firstItem="GB0-13-gcW" firstAttribute="top" secondItem="rWX-MI-xwP" secondAttribute="bottom" constant="18" id="gpU-2q-aWd"/>
                             <constraint firstItem="iuq-95-wsI" firstAttribute="centerX" secondItem="ajP-rD-jAx" secondAttribute="centerX" id="nuS-EP-Nw8"/>
                             <constraint firstItem="rWX-MI-xwP" firstAttribute="centerX" secondItem="1fU-tX-bvE" secondAttribute="centerX" id="oAq-Cs-cEF"/>
-                            <constraint firstItem="GB0-13-gcW" firstAttribute="centerX" secondItem="ajP-rD-jAx" secondAttribute="centerX" id="rVO-Tt-Qio"/>
-                            <constraint firstItem="iuq-95-wsI" firstAttribute="centerX" secondItem="1fU-tX-bvE" secondAttribute="centerX" id="sZJ-Op-jmN"/>
+                            <constraint firstItem="GB0-13-gcW" firstAttribute="centerX" secondItem="ajP-rD-jAx" secondAttribute="centerX" id="qrT-Nk-DfW"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="sZJ-Op-jmN"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Hello Rockstar!" id="tD9-3H-yRX">
                         <barButtonItem key="backBarButtonItem" title="Singer" id="gRQ-mN-1t5"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="bigButton" destination="iuq-95-wsI" id="gZZ-LP-WTV"/>
+                        <outlet property="joinButton" destination="iuq-95-wsI" id="8af-gz-PD9"/>
+                        <outlet property="joinSessionLabel" destination="GB0-13-gcW" id="IWl-kb-MFg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VD3-Oe-7Wg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,7 +295,7 @@
         <!--In Play-->
         <scene sceneID="sIz-cP-Dnq">
             <objects>
-                <viewController id="Z3h-Oq-eK4" sceneMemberID="viewController">
+                <viewController id="Z3h-Oq-eK4" customClass="SingerPlayerViewController" customModule="MuseSync" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UGf-dT-Tdp"/>
                         <viewControllerLayoutGuide type="bottom" id="gb1-B4-yuS"/>
@@ -318,7 +314,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.076484654370000002" green="0.31048168920000002" blue="0.53203914139999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="yUa-Vq-ZUE" firstAttribute="centerX" secondItem="jZY-Td-D7q" secondAttribute="centerX" id="MyW-cr-FkS"/>
                             <constraint firstItem="yUa-Vq-ZUE" firstAttribute="centerY" secondItem="jZY-Td-D7q" secondAttribute="centerY" id="xNC-7Y-wjo"/>

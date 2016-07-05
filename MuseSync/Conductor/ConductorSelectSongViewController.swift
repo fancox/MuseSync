@@ -1,5 +1,5 @@
 //
-//  SelectSongViewController.swift
+//  ConductorSelectSongViewController.swift
 //  MuseSync
 //
 //  Created by Fan Chen on 7/3/16.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-class SelectSongViewController: UITableViewController {
+class ConductorSelectSongViewController: UITableViewController {
 
     let data = ["Love on top", "Mercy", "I want you back"]
 
 }
 
 // MARK: - UITableViewDataSource
-extension SelectSongViewController {
+extension ConductorSelectSongViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 1
+        return data.count
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
@@ -30,9 +30,9 @@ extension SelectSongViewController {
 }
 
 // MARK: - UITableViewDelegate
-extension SelectSongViewController {
+extension ConductorSelectSongViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        PlaySongViewController.presentScreen(data[indexPath.row], fromController: self)
+        ConductorPlayerViewController.presentScreen(data[indexPath.row], fromController: self)
     }
 }

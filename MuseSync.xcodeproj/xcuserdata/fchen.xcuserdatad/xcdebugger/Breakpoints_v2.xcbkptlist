@@ -9,29 +9,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MuseSync/PlayerManager.swift"
-            timestampString = "485470405.933645"
+            filePath = "MuseSync/Singer/CentralViewController.swift"
+            timestampString = "489372412.247874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "play()"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "peripheral(_:didUpdateValueForCharacteristic:error:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MuseSync/CentralViewController.swift"
-            timestampString = "485472603.03669"
+            filePath = "MuseSync/Singer/CentralViewController.swift"
+            timestampString = "489371480.019974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "peripheral(_:didUpdateValueForCharacteristic:error:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "onCharacteristicUpdated(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MuseSync/Singer/CentralViewController.swift"
+            timestampString = "489371480.909053"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "postCharacteristicValueUpdatedNotification(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

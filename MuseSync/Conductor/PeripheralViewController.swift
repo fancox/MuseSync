@@ -11,51 +11,26 @@ import UIKit
 import CoreBluetooth
 import AVFoundation
 
-class PeripheralViewController: UIViewController {
+class PeripheralViewController: NSObject {
+
+    static let sharedInstance = PeripheralViewController()
 
     private var peripheralManager: CBPeripheralManager?
     private var service: CBMutableService?
     private var characteristic: CBMutableCharacteristic?
-    private var playerController: PlayerController?
 
-    @IBOutlet weak var textLabel: UILabel!
 
-    override func viewDidLoad() {
-
-        super.viewDidLoad()
-        playerController = PlayerController()
+    private override init() {
+        super.init()
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: nil)
     }
 
-    // Private methods
-    private func updateCentralsWithMessage(message: String) {
-
-        guard let peripheralManager = peripheralManager,
-            characteristic = characteristic  else { return }
-
-        if let data = NSString(string: String(format: "%@. (%@)", message, NSDate().descriptionWithLocale(NSLocale.currentLocale())))
-            .dataUsingEncoding(NSUTF8StringEncoding) {
-            peripheralManager.updateValue(data, forCharacteristic: characteristic, onSubscribedCentrals: nil)
-        }
+    deinit {
+        print("PeripheralViewController died")
     }
 
-    private func updateCentralsWithMusicInstruction(message: String) {
-
-        guard let peripheralManager = peripheralManager,
-            characteristic = characteristic  else { return }
-
-        if let data = NSString(string: message)
-            .dataUsingEncoding(NSUTF8StringEncoding) {
-            peripheralManager.updateValue(data, forCharacteristic: characteristic, onSubscribedCentrals: nil)
-        }
-    }
-
-
-    // IBActions
-    @IBAction func didTapStart(sender: AnyObject) {
-
-        // UI change
-        textLabel.text = "Started!"
+    // MARK: - Public Methods
+    func onPeripheralPoweredOn() {
 
         // set up service and characteristic
         guard let peripheralManager = peripheralManager else { return }
@@ -68,55 +43,54 @@ class PeripheralViewController: UIViewController {
         peripheralManager.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [Constants.kUUID]])
     }
 
-    @IBAction func didTapPause(sender: AnyObject) {
+    func updateCentrals(shouldPlay shouldPlay: Bool) {
 
-        updateCentralsWithMessage("Let's pause for a bit.")
+        guard let peripheralManager = peripheralManager,
+            characteristic = characteristic  else { return }
+
+
+        if let data = NSString(string: shouldPlay.description)
+            .dataUsingEncoding(NSUTF8StringEncoding) {
+            peripheralManager.updateValue(data, forCharacteristic: characteristic, onSubscribedCentrals: nil)
+        }
     }
 
-    @IBAction func didTapStop(sender: AnyObject) {
 
-        // UI change
-        textLabel.text = "Stopped!"
+    //    // Private methods
+    //    private func updateCentralsWithMessage(message: String) {
+    //
+    //        guard let peripheralManager = peripheralManager,
+    //            characteristic = characteristic  else { return }
+    //
+    //        if let data = NSString(string: String(format: "%@. (%@)", message, NSDate().descriptionWithLocale(NSLocale.currentLocale())))
+    //            .dataUsingEncoding(NSUTF8StringEncoding) {
+    //            peripheralManager.updateValue(data, forCharacteristic: characteristic, onSubscribedCentrals: nil)
+    //        }
+    //    }
 
-        // stop advertising and service
-        peripheralManager?.stopAdvertising()
-        peripheralManager?.removeAllServices()
-    }
-
-    // Music playing related
-
-    @IBAction func didTapPlay(sender: AnyObject) {
-
-        playerController?.playOrPause()
-        updateCentralsWithMusicInstruction("play")
-    }
-
-    @IBAction func didTapPauseMusic(sender: AnyObject) {
-
-        playerController?.playOrPause()
-        updateCentralsWithMusicInstruction("pause")
-    }
 }
 
 extension PeripheralViewController: CBPeripheralManagerDelegate {
 
     func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager) {
 
-        print("The peripheral state is @%", peripheral.state)
+        NSLog("The peripheral state is " + "\(peripheral.state.rawValue)")
+        onPeripheralPoweredOn()
     }
 
     func peripheralManager(peripheral: CBPeripheralManager, didAddService service: CBService, error: NSError?) {
 
-        print("Did Add service @%", service)
+        NSLog("Did Add service " + "\(service)")
     }
 
     func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager, error: NSError?) {
 
-        print("Did start advertising @%", peripheral)
+        NSLog("Did start advertising " + "\(peripheral)")
     }
 
     func peripheralManager(peripheral: CBPeripheralManager, didReceiveReadRequest request: CBATTRequest) {
 
+        NSLog("Did received read request.")
         guard let peripheralManager = peripheralManager,
             characteristic = characteristic,
             value = characteristic.value else { return }
@@ -132,12 +106,6 @@ extension PeripheralViewController: CBPeripheralManagerDelegate {
 
     func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didSubscribeToCharacteristic characteristic: CBCharacteristic) {
 
-        updateCentralsWithMessage("Start rock n roll!")
+          NSLog("didSubscribeToCharacteristic " + "\(central)")
     }
-    
-    func peripheralManagerIsReadyToUpdateSubscribers(peripheral: CBPeripheralManager) {
-        
-        
-    }
-    
 }

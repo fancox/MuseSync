@@ -37,20 +37,19 @@ class PlayerController: NSObject {
     deinit {
 
         player?.removeObserver(self, forKeyPath: "status")
-        playerItem?.removeObserver(self, forKeyPath: "status")
+       // playerItem?.removeObserver(self, forKeyPath: "status")
         print("player died.")
     }
 
-    func playOrPause() {
-        if player?.rate == 0
-        {
+    func playOrPause() -> Bool {
+        
+        if player?.rate == 0 {
             player!.play()
-            //   playButton.setImage(UIImage(named: "player_control_pause_50px.png"), forState: UIControlState.Normal)
+            return true
         } else {
             player!.pause()
-            //    playButton.setImage(UIImage(named: "player_control_play_50px.png"), forState: UIControlState.Normal)
+            return false
         }
-
     }
 
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
