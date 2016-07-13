@@ -28,12 +28,16 @@ class ConductorPlayerViewController: UIViewController {
     private func setupUI() {
 
         playButton.cornerRadius()
+        playButton.enabled = false
+        playButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        playButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
         title = songTitle
     }
 
     private func setupPlayer() {
 
         playerController = PlayerController()
+        playerController?.delegate = self
     }
 
     // MARK: - IBActions
@@ -58,5 +62,13 @@ class ConductorPlayerViewController: UIViewController {
 
         controller.songTitle = withSongTitle
         navigationController.pushViewController(controller, animated: true)
+    }
+}
+
+extension ConductorPlayerViewController: PlayerControllerDelegate {
+
+    func onPlayerReady() {
+
+        playButton.enabled = true
     }
 }

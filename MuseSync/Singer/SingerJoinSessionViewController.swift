@@ -20,6 +20,8 @@ class SingerJoinSessionViewController: UIViewController {
 
         super.viewDidLoad()
         joinSessionLabel.text = "Looking for session to join..."
+        joinButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        joinButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
         joinButton.enabled = false
         joinButton.cornerRadius()
         setupCentral()

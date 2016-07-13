@@ -10,13 +10,18 @@ import Foundation
 import UIKit
 import AVFoundation
 
+protocol PlayerControllerDelegate {
+
+    func onPlayerReady()
+}
+
 class PlayerController: NSObject {
 
     private var kvoContext: UInt8 = 1
 
     var playerItem:AVPlayerItem?
     var player:AVPlayer?
-
+    var delegate: PlayerControllerDelegate?
 
     var url: NSURL?
     let kObserverKeyPlayerStatus = "status"
@@ -58,6 +63,7 @@ class PlayerController: NSObject {
         if player!.status == AVPlayerStatus.ReadyToPlay {
             // player!.play()
             print("...and we are ready to play..")
+            delegate?.onPlayerReady()
         }
     }
 }
