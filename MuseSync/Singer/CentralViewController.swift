@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import CoreBluetooth
 
+protocol CentralViewControllerDelegate {
+
+    func onPeripheralDiscovered()
+}
+
 class CentralViewController: NSObject {
 
     static var kCharacteristicValueUpdatedNotification: String = "CharacteristicValueUpdated"
@@ -20,6 +25,7 @@ class CentralViewController: NSObject {
     var connetingPeripheral: CBPeripheral?
     var discoveredService: CBService?
     var notificationCenter: NSNotificationCenter?
+    var delegate: CentralViewControllerDelegate?
 
     // MARK: - Life cycle
     private override init() {
@@ -76,7 +82,7 @@ extension CentralViewController: CBCentralManagerDelegate {
         connetingPeripheral = peripheral
         guard let connetingPeripheral = connetingPeripheral else { return }
         connetingPeripheral.delegate = self
-        central.connectPeripheral(connetingPeripheral, options: nil)
+        delegate?.onPeripheralDiscovered()
     }
 
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {

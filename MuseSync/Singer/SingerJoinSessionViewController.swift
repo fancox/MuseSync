@@ -19,17 +19,28 @@ class SingerJoinSessionViewController: UIViewController {
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        joinSessionLabel.text = "Looking for session to join..."
+        joinButton.enabled = false
         joinButton.cornerRadius()
         setupCentral()
     }
 
     private func setupCentral() {
 
-        CentralViewController.sharedInstance
+        let centralViewController = CentralViewController.sharedInstance
+        centralViewController.delegate = self
     }
 
     @IBAction func didTapJoin(sender: AnyObject) {
 
         CentralViewController.sharedInstance.joinASession()
+    }
+}
+
+extension SingerJoinSessionViewController: CentralViewControllerDelegate {
+
+    func onPeripheralDiscovered() {
+        joinSessionLabel.text = "Found a session!"
+        joinButton.enabled = true
     }
 }
