@@ -10,27 +10,107 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MuseSync/Singer/CentralViewController.swift"
-            timestampString = "490118106.614324"
+            timestampString = "490636483.437362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "peripheral(_:didUpdateValueForCharacteristic:error:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MuseSync.CentralViewController.peripheral (__ObjC.CBPeripheral, didUpdateValueForCharacteristic : __ObjC.CBCharacteristic, error : Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()"
+                  moduleName = "MuseSync"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fchen/fchen-workspace/MuseSync/MuseSync/Singer/CentralViewController.swift"
+                  timestampString = "490636484.497901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MuseSync.CentralViewController.peripheral (__ObjC.CBPeripheral, didUpdateValueForCharacteristic : __ObjC.CBCharacteristic, error : Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()"
+                  moduleName = "MuseSync"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fchen/fchen-workspace/MuseSync/MuseSync/Singer/CentralViewController.swift"
+                  timestampString = "490636484.498163"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MuseSync/Singer/SingerJoinSessionViewController.swift"
+            timestampString = "490636041.407593"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "onPeripheralDiscovered()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MuseSync/Singer/CentralViewController.swift"
-            timestampString = "490118106.614324"
+            timestampString = "490635766.307905"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "scanForPeripheral()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MuseSync/Singer/CentralViewController.swift"
+            timestampString = "490636483.437362"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "centralManager(_:didDiscoverPeripheral:advertisementData:RSSI:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MuseSync/Singer/SingerPlayerViewController.swift"
+            timestampString = "490636192.451713"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "onCharacteristicUpdated(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -38,15 +118,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MuseSync/Singer/CentralViewController.swift"
-            timestampString = "490118106.614324"
+            timestampString = "490636483.437362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "postCharacteristicValueUpdatedNotification(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -57,13 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MuseSync/Common/PlayerController.swift"
-            timestampString = "490119007.789078"
+            filePath = "MuseSync/Singer/CentralViewController.swift"
+            timestampString = "490636483.437362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "observeValueForKeyPath(_:ofObject:change:context:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "onCharacteristicUpdated(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +153,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MuseSync/Common/PlayerController.swift"
-            timestampString = "490119007.789078"
+            filePath = "MuseSync/Singer/CentralViewController.swift"
+            timestampString = "490636483.437362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "observeValueForKeyPath(_:ofObject:change:context:)"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "peripheral(_:didDiscoverServices:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

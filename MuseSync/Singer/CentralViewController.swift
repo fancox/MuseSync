@@ -40,7 +40,7 @@ class CentralViewController: NSObject {
     }
 
     // MARK: - Public Methods
-    func joinASession() {
+    func scanForPeripheral() {
 
         guard let centralManager = centralManager else { return }
         let lastPeripherals = centralManager.retrieveConnectedPeripheralsWithServices([Constants.kUUID])
@@ -53,6 +53,12 @@ class CentralViewController: NSObject {
         else {
             centralManager.scanForPeripheralsWithServices([Constants.kUUID], options: nil)
         }
+    }
+
+    func joinASession() {
+
+        guard let connetingPeripheral = connetingPeripheral else { return }
+        centralManager?.connectPeripheral(connetingPeripheral, options: nil)
     }
 
     // MARK: - Private Methods
@@ -73,6 +79,7 @@ extension CentralViewController: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(central: CBCentralManager) {
 
         NSLog("centralManagerDidUpdateState " + "\(central.state.rawValue)")
+        scanForPeripheral()
     }
 
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
