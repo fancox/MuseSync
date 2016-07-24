@@ -16,6 +16,8 @@ class ConductorPlayerViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
 
+    let kSecToDelay: NSTimeInterval = 0.5
+
     private var playerController: PlayerController?
 
     override func viewDidLoad() {
@@ -44,13 +46,10 @@ class ConductorPlayerViewController: UIViewController {
     @IBAction func didTapPlay(sender: AnyObject) {
 
         guard let playerController = playerController else { return }
-        let isPlaying = playerController.playOrPause()
-        if isPlaying {
-            playButton.setImage(UIImage(named: "Pause"), forState: .Normal)
-        } else {
-            playButton.setImage(UIImage(named: "Play"), forState: .Normal)
-        }
-        PeripheralViewController.sharedInstance.updateCentrals(shouldPlay: true)
+        playButton.enabled = false
+        let playDate = NSDate(timeIntervalSinceNow: kSecToDelay)
+        playerController.playOrPause(atDate: playDate)
+        PeripheralViewController.sharedInstance.updateCentrals(timestamp: playDate)
     }
 
     // MARK: - Presentation
@@ -70,5 +69,17 @@ extension ConductorPlayerViewController: PlayerControllerDelegate {
     func onPlayerReady() {
 
         playButton.enabled = true
+    }
+
+    func onPlayerPlayed() {
+
+        playButton.enabled = true
+        playButton.setImage(UIImage(named: "Pause"), forState: .Normal)
+    }
+
+    func onPlayerPaused() {
+
+        playButton.enabled = true
+        playButton.setImage(UIImage(named: "Play"), forState: .Normal)
     }
 }

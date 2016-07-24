@@ -62,14 +62,10 @@ class CentralViewController: NSObject {
     }
 
     // MARK: - Private Methods
-    private func onCharacteristicUpdated(shouldPlay: Bool) {
 
-        postCharacteristicValueUpdatedNotification(shouldPlay)
-    }
+    private func postCharacteristicValueUpdatedNotification(data: NSData) {
 
-    private func postCharacteristicValueUpdatedNotification(shouldPlay: Bool) {
-
-        let userInfo = [CentralViewController.kCharacteristicNotificationInfo : shouldPlay]
+        let userInfo = [CentralViewController.kCharacteristicNotificationInfo : data]
         self.notificationCenter?.postNotificationName(CentralViewController.kCharacteristicValueUpdatedNotification, object: self, userInfo: userInfo)
     }
 }
@@ -128,16 +124,8 @@ extension CentralViewController: CBPeripheralDelegate {
 
     func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
 
-        if let data = characteristic.value {
-            let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)?.description
-            NSLog("didUpdateValueForCharacteristic: " + "\(dataString!)")
-
-            if dataString == "true" {
-                onCharacteristicUpdated(true)
-            } else {
-                onCharacteristicUpdated(false)
-            }
-        }
+        guard let data = characteristic.value else { return }
+        postCharacteristicValueUpdatedNotification(data)
     }
 
     func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?) {

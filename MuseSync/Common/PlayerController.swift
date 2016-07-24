@@ -13,6 +13,8 @@ import AVFoundation
 protocol PlayerControllerDelegate {
 
     func onPlayerReady()
+    func onPlayerPlayed()
+    func onPlayerPaused()
 }
 
 class PlayerController: NSObject {
@@ -46,15 +48,29 @@ class PlayerController: NSObject {
         print("player died.")
     }
 
-    func playOrPause() -> Bool {
-        
+    func playOrPause(atDate date: NSDate) {
+
+        let timer = NSTimer(fireDate: date, interval: 0.0, target: self, selector: #selector(PlayerController.timerFireMethod(_:)), userInfo: nil, repeats: false)
+        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+        print("Set up timer:" + "\(NSDate().timeIntervalSinceReferenceDate * 1000)")
+    }
+
+    func timerFireMethod(timer: NSTimer) {
+
+        print("Timer fired:" + "\(NSDate().timeIntervalSinceReferenceDate * 1000)")
         if player?.rate == 0 {
             player!.play()
-            return true
+            delegate?.onPlayerPlayed()
         } else {
             player!.pause()
-            return false
+            delegate?.onPlayerPaused()
         }
+    }
+
+    func isPlaying() -> Bool {
+
+        guard let player = player else { return false }
+        return player.rate != 0
     }
 
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {

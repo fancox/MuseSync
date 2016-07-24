@@ -43,16 +43,16 @@ class PeripheralViewController: NSObject {
         peripheralManager.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [Constants.kUUID]])
     }
 
-    func updateCentrals(shouldPlay shouldPlay: Bool) {
+    func updateCentrals(timestamp timestamp: NSDate) {
 
         guard let peripheralManager = peripheralManager,
             characteristic = characteristic  else { return }
 
-
-        if let data = NSString(string: shouldPlay.description)
-            .dataUsingEncoding(NSUTF8StringEncoding) {
-            peripheralManager.updateValue(data, forCharacteristic: characteristic, onSubscribedCentrals: nil)
-        }
+      //  let dict = NSDictionary(dictionary: ["timestamp": timestamp])
+        //let data = NSKeyedArchiver.archivedDataWithRootObject(timestamp)
+        guard let data = NSString(string: timestamp.timeIntervalSinceReferenceDate.description)
+            .dataUsingEncoding(NSUTF8StringEncoding) else { return }
+        peripheralManager.updateValue(data, forCharacteristic: characteristic, onSubscribedCentrals: nil)
     }
 
 

@@ -45,9 +45,14 @@ class SingerPlayerViewController: UIViewController {
 
     @objc private func onCharacteristicUpdated(notification: NSNotification) {
 
-        guard let info = notification.userInfo?[CentralViewController.kCharacteristicNotificationInfo] as? Bool
+        guard let data = notification.userInfo?[CentralViewController.kCharacteristicNotificationInfo] as? NSData
             else { return }
-        NSLog("SingerPlayerViewController" + "\(info)")
-        playerController?.playOrPause()
+        if let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)?.description,
+            let timeInterval = Double(dataString) {
+            let playAtDate = NSDate(timeIntervalSinceReferenceDate: timeInterval)
+            NSLog("SingerPlayerViewController" + "\(dataString)")
+            NSLog("playAtDate = " + "\(playAtDate)")
+            playerController?.playOrPause(atDate: playAtDate)
+        }
     }
 }
